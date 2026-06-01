@@ -1,0 +1,17 @@
+Petoi Bittle X — MuJoCo Model
+==============================
+
+Based on two sources:
+
+1. gravesreid/mujoco_mpc_bittle
+   License: Apache License 2.0
+   Source: https://github.com/gravesreid/mujoco_mpc_bittle
+   OBJ meshes and MJCF structure adapted from bittle_scaled.xml
+
+2. PetoiCamp/ros_opencat
+   License: MIT License
+   Copyright (c) 2018 Toshinori Kitamura
+   Source: https://github.com/PetoiCamp/ros_opencat
+   Original URDF model of Petoi Bittle
+
+Both licenses are compatible with this project's Apache 2.0 license.
