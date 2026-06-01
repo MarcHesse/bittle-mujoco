@@ -19,6 +19,10 @@ python example_trot.py   # trot gait demo
 
 ## Available Gaits
 
+All gaits use the same conversion from OpenCat degrees to MuJoCo radians.
+`trF` (trot) and `wkF` (walk) have been visually verified; others are
+converted from the same source data but not individually tested.
+
 | Key  | Gait            | Frames |
 |------|-----------------|--------|
 | trF  | Trot forward    | 48     |
@@ -71,9 +75,10 @@ stand = convert_pose("balance")  # shape: (8,)
 
 ## Credits
 
-- Visual meshes from [PetoiCamp/ros_opencat](https://github.com/PetoiCamp/ros_opencat) (MIT License)
-- Gait data from [OpenCat ESP32](https://github.com/PetoiCamp/OpenCatEsp32) (MIT License)
-- MuJoCo MJCF model by Marc Hesse
+- Visual meshes from [PetoiCamp/ros_opencat](https://github.com/PetoiCamp/ros_opencat) (MIT License, Toshinori Kitamura)
+- Gait data from [OpenCatEsp32](https://github.com/PetoiCamp/OpenCatEsp32) (MIT License, Rongzhong Li)
+- MJCF structure adapted from [gravesreid/mujoco_mpc_bittle](https://github.com/gravesreid/mujoco_mpc_bittle) (Apache 2.0)
+- MuJoCo model by Marc Hesse
 
 ## SNN-Based Autonomous Learning
 

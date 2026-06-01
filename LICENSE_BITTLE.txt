@@ -1,7 +1,7 @@
 Petoi Bittle X — MuJoCo Model
 ==============================
 
-Based on two sources:
+Based on three sources:
 
 1. gravesreid/mujoco_mpc_bittle
    License: Apache License 2.0
@@ -14,4 +14,10 @@ Based on two sources:
    Source: https://github.com/PetoiCamp/ros_opencat
    Original URDF model of Petoi Bittle
 
-Both licenses are compatible with this project's Apache 2.0 license.
+3. PetoiCamp/OpenCatEsp32
+   License: MIT License
+   Copyright (c) 2021 Rongzhong Li
+   Source: https://github.com/PetoiCamp/OpenCatEsp32
+   Gait and pose data extracted from InstinctBittleESP.h
+
+All licenses are compatible with this project's Apache 2.0 license.
