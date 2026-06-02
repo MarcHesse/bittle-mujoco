@@ -1,5 +1,7 @@
 # Petoi Bittle X V1 — MuJoCo Model
 
+![Bittle X trotting in MuJoCo](demo.gif)
+
 A ready-to-use [MuJoCo](https://mujoco.org) simulation model of the
 [Petoi Bittle X](https://www.petoi.com/products/petoi-robot-dog-bittle-x-voice-controlled)
 quadruped robot (V1, plastic P1L servos), with OpenCat gait data for
