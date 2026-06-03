@@ -7,9 +7,9 @@ A ready-to-use [MuJoCo](https://mujoco.org) simulation model of the
 quadruped robot (V1, plastic P1L servos), with OpenCat gait data for
 trot, walk, crawl, and more.
 
-Mass properties are based on the plastic servo (P1L) variant at ~265g total.
-The metal gear variant (P1S, ~290g) has heavier servos (~12g vs ~9g);
-adjust the `<inertial>` tags in `bittle.xml` accordingly.
+Mass properties are computed from [PetoiCamp/ros_opencat](https://github.com/PetoiCamp/ros_opencat) mesh volumes
+with material densities (PLA 1240 kg/m³, servo 3500 kg/m³, LiPo 2800 kg/m³).
+Joint damping tuned to 1.5 for stable open-loop trot.
 
 ## Quickstart
 
