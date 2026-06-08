@@ -4,11 +4,25 @@
 
 A ready-to-use [MuJoCo](https://mujoco.org) simulation model of the
 [Petoi Bittle X](https://www.petoi.com/products/petoi-robot-dog-bittle-x-voice-controlled)
-quadruped robot (V1, plastic P1L servos), with OpenCat gait data for
+quadruped robot (V1, plastic P1S servos), with OpenCat gait data for
 trot, walk, crawl, and more.
 
-Mass properties are computed from [PetoiCamp/ros_opencat](https://github.com/PetoiCamp/ros_opencat) mesh volumes
-with material densities (PLA 1240 kg/m³, servo 3500 kg/m³, LiPo 2800 kg/m³).
+Mass properties are **physically validated** from direct measurement of a Bittle X V1 / BiBoard V0_1 unit (2026-06-08):
+
+| Component | Measured | Assignment |
+|---|---|---|
+| Complete robot (with battery) | 273.5 g | — |
+| LiPo battery | 55.0 g | `battery_1` body |
+| Head + neck servo | 18.7 g | `servo_neck__1` body |
+| One P1S servo | 10.7 g | shoulder × 4, knee × 4 |
+| Complete leg (thigh + knee servo + shank) | 20.0 g | — |
+| Lower leg + knee servo | 14.0 g | — |
+| Shank bracket alone | 3.3 g | `shank_*` bodies |
+| Torso frame (derived) | 77.0 g | `torso` body |
+
+Total simulated: **273.5 g** — matches Petoi spec (265–290 g) ✓
+
+Foot contact sites corrected to Y=0.072 m from shank body origin (previously 0.05 m).
 Joint damping tuned to 1.5 for stable open-loop trot.
 
 ## Quickstart
