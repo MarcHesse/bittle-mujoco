@@ -25,6 +25,10 @@ Total simulated: **273.5 g** — matches Petoi spec (265–290 g) ✓
 Foot contact sites corrected to Y=0.072 m from shank body origin (previously 0.05 m).
 Joint damping tuned to 1.5 for stable open-loop trot.
 
+Battery inertial corrected (2026-06-14): the LiPo mass now sits below the chassis as on
+the real robot, lowering the center of mass by ~9.6 mm for more stable open-loop trot
+and better sim-to-real transfer. See [CHANGELOG.md](CHANGELOG.md).
+
 ## Quickstart
 
 ```
@@ -100,6 +104,9 @@ stand = convert_pose("balance")  # shape: (8,)
 
 For biologically grounded locomotion learning with spiking neural networks,
 see [MH-FLOCKE](https://github.com/MarcHesse/mhflocke).
+
+▶ **Video:** [A Bittle teaching itself to walk](https://youtu.be/VC29z_WPgSU) — MH-FLOCKE's
+spiking network (CPG + R-STDP + cerebellum) driving this model, learning with no external reward.
 
 ## License
 

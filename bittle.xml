@@ -128,7 +128,12 @@
         <geom pos="0 0.031 -0.030939" type="mesh" mesh="cover_1" class="collision"/>
       </body>
       <body name="battery_1" pos="-0.01725 0 0.023892">
-        <inertial pos="0 0 0" mass="0.055" diaginertia="5.2e-6 2.3e-5 2.7e-5"/>
+        <!-- Inertial z mirrored (2026-06-11): URDF conversion sign-flipped the battery
+             height. Real Bittle: LiPo pack clips UNDER the chassis (confirmed on hardware).
+             Mass was at +23.9mm above torso origin -> now -23.9mm (pos z = -2*0.023892).
+             Body pos/geoms untouched (geom offset cancels body pos; mesh placement is
+             vertex-based and was already visually correct). Moves total CoM down ~9.6mm. -->
+        <inertial pos="0 0 -0.047784" mass="0.055" diaginertia="5.2e-6 2.3e-5 2.7e-5"/>
         <geom pos="0.01725 0 -0.023892" type="mesh" mesh="battery_1" class="visual" material="body_dark"/>
         <geom pos="0.01725 0 -0.023892" type="mesh" mesh="battery_1" class="collision"/>
       </body>
