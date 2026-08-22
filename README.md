@@ -29,6 +29,28 @@ Battery inertial corrected (2026-06-14): the LiPo mass now sits below the chassi
 the real robot, lowering the center of mass by ~9.6 mm for more stable open-loop trot
 and better sim-to-real transfer. See [CHANGELOG.md](CHANGELOG.md).
 
+Joint limits widened (2026-08-22): shoulders now `-2.6 2.6` rad (±149°) and knees
+`-1.22173 2.6`, replacing a flat ±90° default that was narrower than the robot's real
+range of motion. The old limits made OpenCat's own fall-recovery skill (`rc`) impossible
+to reproduce: its roll phase swings the legs flat out to one side, well past ±90°, to
+lever the chassis over. Gaits are unaffected — the gait tables never approach either
+limit. See [CHANGELOG.md](CHANGELOG.md).
+
+## Joint Limits
+
+| Joint | Range (rad) | Range (deg) |
+|---|---|---|
+| Shoulders (×4) | -2.6 … 2.6 | ±149° |
+| Knees (×4) | -1.22173 … 2.6 | -70° … +149° |
+
+These are wider than a normal gait needs. They are sized so that OpenCat's acrobatic
+and recovery skills — which command angles far outside the walking range — can be
+replayed without being clipped. For reference, Petoi documents a joint range of ±125°
+and 270° of servo travel, while OpenCat's firmware `angleLimit` table permits -200…80°
+on the front legs; the model sits between the two. Note that these are functional
+limits, chosen so the firmware's own motion data replays correctly — they are not a
+measurement of where the physical linkage collides.
+
 ## Quickstart
 
 ```

@@ -39,7 +39,7 @@
     <default class="collision">
       <geom condim="3" contype="1" conaffinity="15" friction="0.9 0.02 0.01" group="1" rgba="0.5 0.5 0.5 0.5"/>
     </default>
-    <position ctrllimited="true" ctrlrange="-1.57 1.57" kp="40.0"/>
+    <position ctrllimited="true" ctrlrange="-2.6 2.6" kp="40.0"/>
     <mesh scale="0.001 0.001 0.001"/>
   </default>
 
@@ -162,7 +162,7 @@
         <inertial pos="0 0 0" mass="0.0107" diaginertia="9e-7 1.2e-6 6e-7"/>
         <geom pos="-0.059645 0.036 -0.017875" type="mesh" mesh="servo_rfs_1" class="visual" material="bittle_black"/>
         <body name="c_thrf__1" pos="-0.007145 -0.0125 0.004125">
-          <joint name="shrfs_joint" pos="0 0 0" axis="0 1 0" range="-1.5708 1.6"/>
+          <joint name="shrfs_joint" pos="0 0 0" axis="0 1 0" range="-2.6 2.6"/>
           <inertial pos="-0.02 0 -0.01" mass="0.006" diaginertia="0.0000011 0.0000022 0.0000022"/>
           <geom pos="-0.0525 0.0485 -0.022" type="mesh" mesh="c_thrf__1" class="visual" material="bittle_red"/>
           <geom pos="-0.0525 0.0485 -0.022" type="mesh" mesh="c_thrf__1" class="collision"/>
@@ -176,7 +176,7 @@
                 <inertial pos="0 0 0" mass="1e-6" diaginertia="1e-9 1e-9 1e-9"/>
                 <geom pos="-0.008067 0.054937 -0.010094" type="mesh" mesh="c_thorf_1" class="visual" material="bittle_red"/>
                 <body name="servos_rf_1" pos="0 0.007857 0">
-                  <joint name="shrft_joint" pos="0 0 0" axis="0 1 0" range="-1.22173 1.5708"/>
+                  <joint name="shrft_joint" pos="0 0 0" axis="0 1 0" range="-1.22173 2.6"/>
                   <inertial pos="-0.004 0.02 -0.005" mass="0.0107" diaginertia="9e-7 1.2e-6 6e-7"/>
                   <geom pos="-0.008067 0.04708 -0.010094" type="mesh" mesh="servos_rf_1" class="visual" material="bittle_black"/>
                   <geom pos="-0.008067 0.04708 -0.010094" type="mesh" mesh="servos_rf_1" class="collision"/>
@@ -202,7 +202,7 @@
         <inertial pos="0 0 0" mass="0.0107" diaginertia="9e-7 1.2e-6 6e-7"/>
         <geom pos="0.059645 0.036 -0.017875" type="mesh" mesh="servo_rrs__1" class="visual" material="bittle_black"/>
         <body name="c_thrr_1" pos="0.007145 -0.0125 0.004125">
-          <joint name="shrrs_joint" pos="0 0 0" axis="0 -1 0" range="-1.5708 1.6"/>
+          <joint name="shrrs_joint" pos="0 0 0" axis="0 -1 0" range="-2.6 2.6"/>
           <inertial pos="0.02 0 -0.01" mass="0.006" diaginertia="0.0000011 0.0000022 0.0000022"/>
           <geom pos="0.0525 0.0485 -0.022" type="mesh" mesh="c_thrr_1" class="visual" material="bittle_red"/>
           <geom pos="0.0525 0.0485 -0.022" type="mesh" mesh="c_thrr_1" class="collision"/>
@@ -216,7 +216,7 @@
                 <inertial pos="0 0 0" mass="1e-6" diaginertia="1e-9 1e-9 1e-9"/>
                 <geom pos="0.096933 0.054937 -0.010094" type="mesh" mesh="c_thorr_1" class="visual" material="bittle_red"/>
                 <body name="servos_rr_1" pos="0 0.007857 0">
-                  <joint name="shrrt_joint" pos="0 0 0" axis="0 1 0" range="-1.22173 1.5708"/>
+                  <joint name="shrrt_joint" pos="0 0 0" axis="0 1 0" range="-1.22173 2.6"/>
                   <inertial pos="0.05 0.02 -0.005" mass="0.0107" diaginertia="9e-7 1.2e-6 6e-7"/>
                   <geom pos="0.096933 0.04708 -0.010094" type="mesh" mesh="servos_rr_1" class="visual" material="bittle_black"/>
                   <geom pos="0.096933 0.04708 -0.010094" type="mesh" mesh="servos_rr_1" class="collision"/>
@@ -242,7 +242,7 @@
         <inertial pos="0 0 0" mass="0.0107" diaginertia="9e-7 1.2e-6 6e-7"/>
         <geom pos="-0.059645 -0.036 -0.017875" type="mesh" mesh="servo_lfs_1" class="visual" material="bittle_black"/>
         <body name="c_thlf_1" pos="-0.007145 0.0125 0.004125">
-          <joint name="shlfs_joint" pos="0 0 0" axis="0 1 0" range="-1.5708 1.6"/>
+          <joint name="shlfs_joint" pos="0 0 0" axis="0 1 0" range="-2.6 2.6"/>
           <inertial pos="-0.02 0 -0.01" mass="0.006" diaginertia="0.0000011 0.0000022 0.0000022"/>
           <geom pos="-0.0525 -0.0485 -0.022" type="mesh" mesh="c_thlf_1" class="visual" material="bittle_red"/>
           <geom pos="-0.0525 -0.0485 -0.022" type="mesh" mesh="c_thlf_1" class="collision"/>
@@ -256,7 +256,7 @@
                 <inertial pos="0 0 0" mass="1e-6" diaginertia="1e-9 1e-9 1e-9"/>
                 <geom pos="-0.008067 -0.054937 -0.010094" type="mesh" mesh="c_tholf_1" class="visual" material="bittle_red"/>
                 <body name="servos_lf_1" pos="0 -0.007857 0">
-                  <joint name="shlft_joint" pos="0 0 0" axis="0 1 0" range="-1.22173 1.5708"/>
+                  <joint name="shlft_joint" pos="0 0 0" axis="0 1 0" range="-1.22173 2.6"/>
                   <inertial pos="-0.004 -0.02 -0.005" mass="0.0107" diaginertia="9e-7 1.2e-6 6e-7"/>
                   <geom pos="-0.008067 -0.04708 -0.010094" type="mesh" mesh="servos_lf_1" class="visual" material="bittle_black"/>
                   <geom pos="-0.008067 -0.04708 -0.010094" type="mesh" mesh="servos_lf_1" class="collision"/>
@@ -282,7 +282,7 @@
         <inertial pos="0 0 0" mass="0.0107" diaginertia="9e-7 1.2e-6 6e-7"/>
         <geom pos="0.059645 -0.036 -0.017875" type="mesh" mesh="servo_lrs__1" class="visual" material="bittle_black"/>
         <body name="c_thlr_1" pos="0.007145 0.0125 0.004125">
-          <joint name="shlrs_joint" pos="0 0 0" axis="0 -1 0" range="-1.5708 1.6"/>
+          <joint name="shlrs_joint" pos="0 0 0" axis="0 -1 0" range="-2.6 2.6"/>
           <inertial pos="0.02 0 -0.01" mass="0.006" diaginertia="0.0000011 0.0000022 0.0000022"/>
           <geom pos="0.0525 -0.0485 -0.022" type="mesh" mesh="c_thlr_1" class="visual" material="bittle_red"/>
           <geom pos="0.0525 -0.0485 -0.022" type="mesh" mesh="c_thlr_1" class="collision"/>
@@ -296,7 +296,7 @@
                 <inertial pos="0 0 0" mass="1e-6" diaginertia="1e-9 1e-9 1e-9"/>
                 <geom pos="0.096933 -0.054939 -0.010094" type="mesh" mesh="c_tholr__1" class="visual" material="bittle_red"/>
                 <body name="servos_lr_1" pos="0 -0.007857 0">
-                  <joint name="shlrt_joint" pos="0 0 0" axis="0 1 0" range="-1.22173 1.5708"/>
+                  <joint name="shlrt_joint" pos="0 0 0" axis="0 1 0" range="-1.22173 2.6"/>
                   <inertial pos="0.05 -0.02 -0.005" mass="0.0107" diaginertia="9e-7 1.2e-6 6e-7"/>
                   <geom pos="0.096933 -0.047082 -0.010094" type="mesh" mesh="servos_lr_1" class="visual" material="bittle_black"/>
                   <geom pos="0.096933 -0.047082 -0.010094" type="mesh" mesh="servos_lr_1" class="collision"/>
