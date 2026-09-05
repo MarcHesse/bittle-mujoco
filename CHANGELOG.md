@@ -2,6 +2,30 @@
 
 All notable changes to the Bittle X MuJoCo model are documented here.
 
+## 2026-09-03
+
+- **The head is now solid.** `jaw_1` and `head__1` carried only `class="visual"`
+  geometry, so the snout passed through walls and other obstacles while the body
+  was stopped by whatever came next behind it. Both now carry a matching
+  `class="collision"` geom on the same mesh and position. Measured against a wall
+  face at 0.250 m, the head touches with the torso origin at 0.148 m, the jaw at
+  0.153, the front shanks at 0.182 and the torso at 0.187 — so the head reaches
+  34 mm further forward than any other part, and until now none of that reach
+  existed physically. Worth noting for anyone measuring approach distances: in
+  the stand pose the frontmost contact was previously a front shank, not the
+  chest.
+- `c_neck__1` and `servo_neck__1` deliberately stay visual-only. They sit within
+  the torso silhouette and are not the contact point, and collision geometry
+  there risks standing contacts against `cover_1` and `front__1`, which are
+  grandparent pairs and therefore not filtered out by `filterparent`.
+- **This changes the physics.** Anything approaching an obstacle head-on now
+  stops about 34 mm earlier, so approach-distance results from before this date
+  are not comparable with later ones. Standing, settling and open-loop trot are
+  unaffected: no self-contact appears in the stand pose or over 2000 free steps,
+  settling is unchanged at -13.0 mm, and `test_mass_stand.py` still reports four
+  foot contacts and nothing else.
+- Mass, inertials, joint limits and gait data are unchanged.
+
 ## 2026-08-22
 
 - **Joint limits widened to match the hardware's actual range of motion.** The

@@ -25,6 +25,22 @@
        6: lr_shoulder (shlrs_joint)   7: lr_knee (shlrt_joint)
 
      Note: neck_joint exists but is not actuated.
+
+     Head collision (2026-09-03): jaw_1 and head__1 carry collision geoms.
+     Until then the entire head chain was class="visual" only, so the snout
+     passed through obstacles while the body was stopped by the front shanks.
+     Measured against a wall face at 0.250 m: head__1 touches with the torso
+     origin at 0.148 m, jaw_1 at 0.153, the front shanks at 0.182 and the torso
+     at 0.187 -- the head reaches 34 mm further forward than anything else.
+     c_neck__1 and servo_neck__1 stay visual-only: they sit inside the torso
+     silhouette, are not the contact point, and collision geoms there would risk
+     standing contacts against cover_1 and front__1, which are grandparent pairs
+     and therefore not removed by filterparent.
+     Verified: no self-contact in the stand pose or over 2000 free steps, and
+     settling is unchanged at dz -13.0 mm.
+     THIS CHANGES THE PHYSICS. Anything approaching an obstacle head-on now
+     stops about 34 mm earlier; results recorded before this date are not
+     comparable with later ones.
 -->
 <mujoco model="bittle">
   <compiler angle="radian" meshdir="meshes_obj" autolimits="true" inertiafromgeom="false"/>
@@ -149,9 +165,11 @@
           <body name="jaw_1" pos="0.016896 -0.012925 -0.001914">
             <inertial pos="0 0 0" mass="1e-6" diaginertia="1e-9 1e-9 1e-9"/>
             <geom pos="-0.06445 0.012925 -0.034027" type="mesh" mesh="jaw_1" class="visual" material="bittle_blue"/>
+            <geom pos="-0.06445 0.012925 -0.034027" type="mesh" mesh="jaw_1" class="collision"/>
             <body name="head__1" pos="-0.008739 -0.00423 0.0263">
               <inertial pos="0 0 0" mass="1e-6" diaginertia="1e-9 1e-9 1e-9"/>
               <geom pos="-0.055711 0.017155 -0.060327" type="mesh" mesh="head__1" class="visual" material="head_yellow"/>
+              <geom pos="-0.055711 0.017155 -0.060327" type="mesh" mesh="head__1" class="collision"/>
             </body>
           </body>
         </body>
