@@ -41,7 +41,11 @@ only, so the snout passed through walls and other obstacles. Both now have a mat
 collision geom. This matters for anyone measuring approach distances: against a wall
 face at 0.250 m the head touches with the torso origin at 0.148 m, whereas the front
 shanks — until now the frontmost contact in the stand pose — only touch once the origin
-reaches 0.182 m. A head-on approach therefore stops about 34 mm earlier than before. Standing, settling and
+reaches 0.182 m. A head-on approach therefore stops about 34 mm earlier than before. These figures are
+measured with `neck_joint` at the value the `stand` keyframe sets (−0.48 rad). That
+joint is unactuated but free, its axis is tilted, and swinging it across its ±0.5 rad
+range moves the head's reach between 84.0 and 102.0 mm — so the contact point travels
+by up to 18 mm depending on where the head is looking. Standing, settling and
 open-loop trot are unaffected. The neck bracket and neck servo stay visual-only; they sit
 within the torso silhouette and are not the contact point. See [CHANGELOG.md](CHANGELOG.md).
 

@@ -14,6 +14,14 @@ All notable changes to the Bittle X MuJoCo model are documented here.
   existed physically. Worth noting for anyone measuring approach distances: in
   the stand pose the frontmost contact was previously a front shank, not the
   chest.
+- **The reach depends on the neck.** `neck_joint` is unactuated but not fixed: it
+  swings freely within its ±0.5 rad limits, and its axis is tilted
+  (`-0.5 0 -0.866`), so turning the head also moves the snout fore and aft. Swept
+  against the same wall face, the head reaches 102.0 mm ahead of the torso origin
+  at −0.48 rad, 96.0 mm at 0 and 84.0 mm at +0.5 — an 18 mm spread. The figures
+  above are quoted at −0.48, which is what the `stand` keyframe sets and also
+  close to the maximum. Anyone driving the neck, or letting it swing during
+  locomotion, should expect the contact point to move by that much.
 - `c_neck__1` and `servo_neck__1` deliberately stay visual-only. They sit within
   the torso silhouette and are not the contact point, and collision geometry
   there risks standing contacts against `cover_1` and `front__1`, which are
