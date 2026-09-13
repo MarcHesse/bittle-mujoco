@@ -31,7 +31,7 @@
      passed through obstacles while the body was stopped by the front shanks.
      Measured against a wall face at 0.250 m: head__1 touches with the torso
      origin at 0.148 m, jaw_1 at 0.153, the front shanks at 0.182 and the torso
-     at 0.187 -- the head reaches 34 mm further forward than anything else.
+     at 0.187, so the head reaches 34 mm further forward than anything else.
      c_neck__1 and servo_neck__1 stay visual-only: they sit inside the torso
      silhouette, are not the contact point, and collision geoms there would risk
      standing contacts against cover_1 and front__1, which are grandparent pairs
