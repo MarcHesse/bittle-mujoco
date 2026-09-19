@@ -49,6 +49,35 @@ by up to 18 mm depending on where the head is looking. Standing, settling and
 open-loop trot are unaffected. The neck bracket and neck servo stay visual-only; they sit
 within the torso silhouette and are not the contact point. See [CHANGELOG.md](CHANGELOG.md).
 
+Contact solver tightened (2026-09-19): `impratio="100"` in `<option>`. MuJoCo's soft
+contact model lets loaded feet creep regardless of the friction coefficient; the
+recommended remedy is the Newton solver with elliptic cones and a large `impratio`, as the
+MuJoCo Menagerie quadrupeds use. Measured on the open-loop trot: about 13 % less slip. See
+[CHANGELOG.md](CHANGELOG.md).
+
+## Diagnostics
+
+`diagnose_contact.py` plays a gait open-loop and measures foot slip under load, contact
+location, joint tracking, actuator torque and body motion, with a built-in self-check.
+Parameters can be overridden in memory (damping, armature, kp, force limit, friction,
+impratio, contact softness, knee offset) without touching the model file.
+`leg_geometry.py` reports segment lengths and angles in the stand pose.
+
+```
+python diagnose_contact.py --selfcheck
+```
+
+```
+python diagnose_contact.py --gait trF
+```
+
+```
+python leg_geometry.py
+```
+
+Findings from comparing the model with a real Bittle X, including open points, are in
+[docs/CONTACT_DIAGNOSTIC.md](docs/CONTACT_DIAGNOSTIC.md).
+
 ## Joint Limits
 
 | Joint | Range (rad) | Range (deg) |

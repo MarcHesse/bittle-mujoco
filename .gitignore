@@ -8,3 +8,7 @@ test_symmetry.py
 test_gait_symmetry.py
 fix_inertial.py
 INERTIA_FIX.md
+
+# Output of diagnose_contact.py / leg_geometry.py (generated, per machine)
+out/
+stand_side.png

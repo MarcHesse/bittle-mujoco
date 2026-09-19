@@ -41,11 +41,18 @@
      THIS CHANGES THE PHYSICS. Anything approaching an obstacle head-on now
      stops about 34 mm earlier; results recorded before this date are not
      comparable with later ones.
+
+     impratio="100" (2026-09-19). MuJoCo's soft contact model lets feet creep
+     under load regardless of the friction coefficient; the recommended remedy
+     is the Newton solver with elliptic cones and a large impratio (Menagerie
+     quadrupeds use 100). Measured with diagnose_contact.py on trF: loaded slip
+     about 13 % lower. See docs/CONTACT_DIAGNOSTIC.md.
+     THIS CHANGES THE PHYSICS: results before this date are not comparable.
 -->
 <mujoco model="bittle">
   <compiler angle="radian" meshdir="meshes_obj" autolimits="true" inertiafromgeom="false"/>
 
-  <option timestep="0.002" gravity="0 0 -9.81" integrator="implicitfast" cone="elliptic"/>
+  <option timestep="0.002" gravity="0 0 -9.81" integrator="implicitfast" cone="elliptic" impratio="100"/>
 
   <default>
     <joint limited="true" damping="1.5" armature="0.01" frictionloss="0.15"/>

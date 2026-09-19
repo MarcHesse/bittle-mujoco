@@ -2,6 +2,28 @@
 
 All notable changes to the Bittle X MuJoCo model are documented here.
 
+## 2026-09-19
+
+- **`impratio="100"` added to `<option>`.** MuJoCo models contacts as soft
+  constraints, and with elliptic friction cones the normal and friction
+  forces are solved together, so feet can creep under load no matter how
+  high the friction coefficient is. The MuJoCo documentation recommends the
+  Newton solver with elliptic cones and a large `impratio` to reduce this;
+  the quadrupeds in MuJoCo Menagerie use 100. The model already used the
+  Newton solver (default) and elliptic cones; only `impratio` was missing
+  (default 1).
+- Measured with the new `diagnose_contact.py` on the open-loop trot `trF`
+  (10 cycles): total slip about 13 % lower. The effect is real but small;
+  the larger sim-to-real differences found in the same investigation
+  (stand pose 11 mm too low, joint model) are documented in
+  `docs/CONTACT_DIAGNOSTIC.md` and not yet changed.
+- **This changes the physics.** Contact results from before this date are
+  not comparable with later ones. Solver cost per step increases.
+- Added `diagnose_contact.py` (contact and actuation diagnostic, with
+  self-check) and `leg_geometry.py` (segment lengths and angles in the stand
+  pose). Design and results: `docs/CONTACT_DIAGNOSTIC.md`.
+- Mass, inertials, geometry, joint limits and gait data are unchanged.
+
 ## 2026-09-03
 
 - **The head is now solid.** `jaw_1` and `head__1` carried only `class="visual"`
