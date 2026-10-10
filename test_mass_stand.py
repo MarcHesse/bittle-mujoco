@@ -11,7 +11,7 @@ total_g = round(sum(m.body_mass) * 1000, 1)
 print(f"Mass:     {total_g} g  ({'OK' if abs(total_g - 273.5) < 1.0 else 'WRONG'})")
 
 mujoco.mj_resetDataKeyframe(m, d, 0)
-ctrl = [-0.7854, 1.4835, -0.7854, 1.4835, 0.7854, 1.4835, 0.7854, 1.4835]
+ctrl = [-0.7854, 1.9199, -0.7854, 1.9199, 0.7854, 1.9199, 0.7854, 1.9199]
 for _ in range(3000):
     d.ctrl[:] = ctrl
     mujoco.mj_step(m, d)

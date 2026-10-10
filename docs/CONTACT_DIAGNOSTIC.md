@@ -269,6 +269,23 @@ friction 0.05, deterministic).
   video of the feet to see whether the real feet slide.
 - P1S datasheet: stall torque and speed, to replace the 0.5 Nm guess.
 - Applied on 2026-09-19: `impratio="100"` in `bittle.xml` (all copies, MH-FLOCKE
-  v0.8.2.3). Not yet changed: knee conversion in `gaits.py`, joint model, foot
-  sites. Each of these changes the physics: CHANGELOG entry, results not
-  comparable across the change, 10k regression in MH-FLOCKE after syncing.
+  v0.8.2.3).
+- Applied on 2026-10-10: knee conversion, `REST_LOWER` -55 -> -80 in `gaits.py`,
+  `stand` keyframe knees 85 -> 110 deg (all copies, MH-FLOCKE v0.8.2.4). Applied
+  without the independent shank-angle measurement on the robot; the corrected file
+  gives shank 20.7 deg, which is the value to check on the robot.
+- Not yet changed: joint model, foot sites. Each of these changes the physics:
+  CHANGELOG entry, results not comparable across the change, 10k regression in
+  MH-FLOCKE after syncing.
+
+## Results 2026-10-10 (corrected knee conversion, model e6a5caeab29a43a1)
+
+- `leg_geometry.py`, stand pose: shoulder 90.3 mm, knee 50.4 mm above the floor,
+  thigh 29.9 deg and shank 20.7 deg from vertical, segment lengths unchanged
+  (46.0 / 55.6 mm).
+- `diagnose_contact.py --gait trF`, 10 cycles: travel 1161.9 mm, drift y -71.1 mm,
+  yaw 0.2 deg, tilt max 7.1 deg, no fall. Loaded slip ratio front 0.09-0.10, rear
+  0.13-0.14; fore-aft 98-99 mm front, 153-166 mm rear, lateral 14-38 mm.
+- Knee upper limit: `rc` now commands 164-180 deg and `lifted` 155 deg, above the
+  2.6 rad limit. Supine recovery in MH-FLOCKE still rights the body; limit left
+  unchanged for now.

@@ -55,6 +55,13 @@ recommended remedy is the Newton solver with elliptic cones and a large `imprati
 MuJoCo Menagerie quadrupeds use. Measured on the open-loop trot: about 13 % less slip. See
 [CHANGELOG.md](CHANGELOG.md).
 
+Knee conversion corrected (2026-10-10): the knee rest angle in `gaits.py` is now -80 deg
+instead of OpenCat's boot value -55. With -55 the model stood 11 mm lower than a real
+Bittle X in `kbalance`; with -80 it matches the measured shoulder (90 mm) and knee (50 mm)
+heights, and the open-loop trot runs nearly straight (yaw drift 0.2 deg instead of 39 deg,
+forward travel up by 59 %). All gaits and poses change with it. See
+[CHANGELOG.md](CHANGELOG.md).
+
 ## Diagnostics
 
 `diagnose_contact.py` plays a gait open-loop and measures foot slip under load, contact

@@ -2,6 +2,37 @@
 
 All notable changes to the Bittle X MuJoCo model are documented here.
 
+## 2026-10-10
+
+- **Knee conversion corrected: `REST_LOWER` -55 -> -80 in `gaits.py`.** The
+  model stood 11 mm lower than a real Bittle X in `kbalance`: shoulder axis 79 mm
+  and knee 39 mm above the floor, against 90 mm and 50 mm measured on the robot.
+  The shoulder-to-knee height matched; the whole difference sat below the knee,
+  and a constant +25 deg on every knee command reproduced both heights. The
+  OpenCat boot value -55 is therefore not the right zero for this model's knee
+  joints; -80 puts the offset into the conversion itself.
+- The `stand` keyframe follows (knees 1.4835 -> 1.9199 rad, 85 -> 110 deg).
+  `STAND_CTRL` in `gaits.py` is derived from the `balance` pose and changes with
+  it; `test_mass_stand.py` uses the new values.
+- Measured with the corrected file:
+  - `leg_geometry.py`: shoulder 90.3 mm, knee 50.4 mm above the floor, shank
+    20.7 deg from vertical (was 46 deg).
+  - `test_mass_stand.py`: torso settles at 58.2 mm (was about 47 mm), four
+    contacts, 273.5 g.
+  - `diagnose_contact.py --gait trF`, 10 cycles: forward travel 729 -> 1162 mm,
+    yaw drift 39.4 -> 0.2 deg, max tilt 19.5 -> 7.1 deg. Loaded slip ratio
+    0.09-0.14, mostly fore-aft and larger in the rear legs; that remainder is
+    not explained by this change.
+- **Every gait and pose changes**, because all knee targets shift by 25 deg.
+  Results from before this date are not comparable with later ones.
+- Known limit, unchanged: the knee upper limit (2.6 rad, 149 deg) was sized on
+  2026-08-22 for OpenCat's recovery skill `rc` under the old conversion. With -80,
+  `rc` commands 164-180 deg and `lifted` 155 deg, which the model clips. The
+  supine recovery test still rights the body (first upright at step 163, stable
+  from step 3838), so the limit is left as it is for now.
+- Not changed: masses, inertials, geometry, joint limits, the joint model and the
+  foot sites (still 14 mm above the floor in the new stand pose).
+
 ## 2026-09-19
 
 - **`impratio="100"` added to `<option>`.** MuJoCo models contacts as soft

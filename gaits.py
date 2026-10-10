@@ -6,7 +6,7 @@ Source: https://github.com/PetoiCamp/OpenCatEsp32
 
 Conversion formula:
     mjcf_rad = (oc_deg - rest_deg) * axis_sign * pi / 180
-    rest_deg: upper leg = 75, lower leg = -55
+    rest_deg: upper leg = 75, lower leg = -80
     axis_sign: per-actuator (from MJCF joint axis definitions)
 """
 
@@ -16,7 +16,11 @@ import numpy as np
 # fmt: off
 
 REST_UPPER = 75    # degrees, OpenCat indices 8-11
-REST_LOWER = -55   # degrees, OpenCat indices 12-15
+# REST_LOWER was -55 (OpenCat currentAng[] boot value) until 2026-10-10. With -55
+# the stand pose sat 11 mm lower than a real Bittle X in kbalance (shoulder 79 vs
+# 90 mm, knee 39 vs 50 mm above the floor); a constant +25 deg on every knee command
+# reproduced both heights. See docs/CONTACT_DIAGNOSTIC.md.
+REST_LOWER = -80   # degrees, OpenCat indices 12-15
 
 # Mapping: (oc_col, mjcf_actuator, axis_sign, rest_deg)
 # OpenCat gait frame columns 0-7 map to MJCF actuators 0-7:
